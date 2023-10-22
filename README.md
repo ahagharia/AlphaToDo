@@ -13,3 +13,4 @@ Prerequisites:
 Getting Started:
 - dotnet build
 - dotnet run
+- got to TaskDemoTest folder and run 'dotnet test' to run test cases
