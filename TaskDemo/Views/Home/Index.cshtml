@@ -1,0 +1,25 @@
+﻿@model List<ToDoItem>
+
+<h1>To-Do List</h1>
+
+<form asp-action="Add" method="post">
+    <input type="text" name="Task" placeholder="New task" required />
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<ul>
+    @if (Model != null)
+        {
+        @foreach (var toDo in Model)
+            {
+            <li>
+                <form asp-action="ToggleIsDone" asp-route-id="@toDo.Id" method="post">
+                    <input type="checkbox" @(toDo.IsDone ? "checked" : "") onchange="this.form.submit()" />
+                    @toDo.Task
+                    <a asp-action="Edit" asp-route-id="@toDo.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@toDo.Id">Delete</a>
+                </form>
+            </li>
+            }
+        }
+</ul>

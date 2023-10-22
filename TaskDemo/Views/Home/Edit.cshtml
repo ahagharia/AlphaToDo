@@ -1,0 +1,10 @@
+﻿@model ToDoItem
+
+<h2>Edit</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Task</label>
+    <input asp-for="Task" class="form-control" />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
