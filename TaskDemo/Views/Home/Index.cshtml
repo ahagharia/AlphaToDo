@@ -7,19 +7,19 @@
     <button type="submit" class="btn btn-primary">Add</button>
 </form>
 
-<ul>
+<div class="row">
     @if (Model != null)
         {
         @foreach (var toDo in Model)
             {
-            <li>
+            <div class="col-md-12">
                 <form asp-action="ToggleIsDone" asp-route-id="@toDo.Id" method="post">
                     <input type="checkbox" @(toDo.IsDone ? "checked" : "") onchange="this.form.submit()" />
                     @toDo.Task
                     <a asp-action="Edit" asp-route-id="@toDo.Id">Edit</a>
                     <a asp-action="Delete" asp-route-id="@toDo.Id">Delete</a>
                 </form>
-            </li>
+            </div>
             }
         }
-</ul>
+</div>
